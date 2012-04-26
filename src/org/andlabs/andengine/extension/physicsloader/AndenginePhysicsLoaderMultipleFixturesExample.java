@@ -94,10 +94,12 @@ public class AndenginePhysicsLoaderMultipleFixturesExample extends
 		this.mScene.attachChild(mBigAsset);
 
 		final PhysicsEditorLoader loader = new PhysicsEditorLoader();
+		// set base path
+		loader.setAssetBasePath("xml/");
+		
 		try {
-			loader.loadDebug(this, mPhysicsWorld, mScene, "xml/",
-					"multi_fixture_asset.xml", mBigAsset, false, false,
-					vertexBufferObjectManager);
+			loader.load(this, mPhysicsWorld, "multi_fixture_asset.xml",
+					mBigAsset, false, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

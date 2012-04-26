@@ -93,15 +93,16 @@ public class AndenginePhysicsLoaderCollisionFilteringExample extends
 		mCamera.setChaseEntity(star);
 
 		final PhysicsEditorLoader loader = new PhysicsEditorLoader();
+		loader.setAssetBasePath("xml/");
 		try {
 			// Load non-dynamic body definitions
-			loader.loadDebug(this, mPhysicsWorld, mScene, "xml/",
+			loader.loadDebug(this, mPhysicsWorld, mScene,
 					"collision_filtering_asset.xml", mBigAsset, false, false,
 					vertexBufferObjectManager);
 			// Reset between loading of different XMLs
 			loader.reset();
 			// load dynamic shape (a star), not colliding with the bouncy wall
-			loader.load(this, mPhysicsWorld, "xml/", "star.xml", star, true,
+			loader.load(this, mPhysicsWorld, "star.xml", star, true,
 					true);
 		} catch (IOException e) {
 			e.printStackTrace();

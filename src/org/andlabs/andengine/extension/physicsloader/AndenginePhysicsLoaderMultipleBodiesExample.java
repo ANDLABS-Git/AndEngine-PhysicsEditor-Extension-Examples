@@ -107,11 +107,13 @@ public class AndenginePhysicsLoaderMultipleBodiesExample extends
 		this.mScene.attachChild(mSimpleAsset);
 
 		final PhysicsEditorLoader loader = new PhysicsEditorLoader();
-
+		// set base path
+		loader.setAssetBasePath("xml/");
 		// register BodyChangedListener
 		loader.setBodyChangedListener(this);
+		
 		try {
-			loader.loadDebug(this, mPhysicsWorld, mScene, "xml/",
+			loader.loadDebug(this, mPhysicsWorld, mScene,
 					"multi_body_asset.xml", null, false, false,
 					vertexBufferObjectManager);
 		} catch (IOException e) {

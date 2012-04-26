@@ -93,7 +93,7 @@ public class AndenginePhysicsLoaderSimpleExample extends
 
 		final PhysicsEditorLoader loader = new PhysicsEditorLoader();
 		try {
-			loader.loadDebug(this, mPhysicsWorld, mScene, "xml/", "simple_asset.xml",
+			loader.loadDebug(this, mPhysicsWorld, mScene, "simple_asset.xml",
 					mBigAsset, false, false, vertexBufferObjectManager);
 		} catch (IOException e) {
 			e.printStackTrace();

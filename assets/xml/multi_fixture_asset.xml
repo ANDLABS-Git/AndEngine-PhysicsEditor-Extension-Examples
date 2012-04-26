@@ -11,7 +11,7 @@
                 restitution="0"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
-                filter_maskBits="255"
+                filter_maskBits="65535"
                 isSensor="false"
                 type="POLYGON"
                 numPolygons="20"
