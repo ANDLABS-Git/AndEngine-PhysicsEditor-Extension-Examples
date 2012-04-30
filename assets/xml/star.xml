@@ -3,12 +3,12 @@
 <bodydef version="1.0">
     <bodies numBodies="1">
 
-        <body name="star" dynamic="true" numFixtures="1">
+        <body name="star" dynamic="true" numFixtures="2">
 
             <fixture
                 density="2"
-                friction="1"
-                restitution="1"
+                friction="0"
+                restitution="0"
                 filter_categoryBits="1"
                 filter_groupIndex="0"
                 filter_maskBits="3"

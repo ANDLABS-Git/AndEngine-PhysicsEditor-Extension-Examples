@@ -111,11 +111,10 @@ public class AndenginePhysicsLoaderMultipleBodiesExample extends
 		loader.setAssetBasePath("xml/");
 		// register BodyChangedListener
 		loader.setBodyChangedListener(this);
-		
+
 		try {
-			loader.loadDebug(this, mPhysicsWorld, mScene,
-					"multi_body_asset.xml", null, false, false,
-					vertexBufferObjectManager);
+			loader.load(this, mPhysicsWorld, "multi_body_asset.xml", null,
+					false, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

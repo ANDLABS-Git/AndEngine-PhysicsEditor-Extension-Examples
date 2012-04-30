@@ -29,14 +29,13 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 
-public class AndenginePhysicsLoaderSimpleExample extends
-		SimpleBaseGameActivity {
+public class AndenginePhysicsLoaderSimpleExample extends SimpleBaseGameActivity {
 
 	private static final int CAMERA_WIDTH = 720;
 	private static final int CAMERA_HEIGHT = 480;
-	
-	private static final FixtureDef FIXTURE_DEF = PhysicsFactory.createFixtureDef(1, 0.5f, 0.5f);
 
+	private static final FixtureDef FIXTURE_DEF = PhysicsFactory
+			.createFixtureDef(1, 0.5f, 0.5f);
 
 	private BitmapTextureAtlas mBitmapTextureAtlas;
 
@@ -47,7 +46,7 @@ public class AndenginePhysicsLoaderSimpleExample extends
 	private PhysicsWorld mPhysicsWorld;
 	private Sprite mBigAsset;
 	private TiledTextureRegion mCircleFaceTextureRegion;
-	
+
 	private ZoomCamera mCamera;
 
 	@Override
@@ -67,7 +66,9 @@ public class AndenginePhysicsLoaderSimpleExample extends
 		this.mBigAssetTextureRegion = BitmapTextureAtlasTextureRegionFactory
 				.createFromAsset(this.mBitmapTextureAtlas, this,
 						"simple_asset.png", 0, 0);
-		this.mCircleFaceTextureRegion = BitmapTextureAtlasTextureRegionFactory.createTiledFromAsset(this.mBitmapTextureAtlas, this, "face_circle_tiled.png", 0, 256, 2, 1); // 64x32
+		this.mCircleFaceTextureRegion = BitmapTextureAtlasTextureRegionFactory
+				.createTiledFromAsset(this.mBitmapTextureAtlas, this,
+						"face_circle_tiled.png", 0, 256, 2, 1); // 64x32
 
 		this.mBitmapTextureAtlas.load();
 	}
@@ -93,24 +94,27 @@ public class AndenginePhysicsLoaderSimpleExample extends
 
 		final PhysicsEditorLoader loader = new PhysicsEditorLoader();
 		try {
-			loader.loadDebug(this, mPhysicsWorld, mScene, "simple_asset.xml",
-					mBigAsset, false, false, vertexBufferObjectManager);
+			loader.load(this, mPhysicsWorld, "simple_asset.xml", mBigAsset,
+					false, false);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 		final AnimatedSprite face;
 		final Body body;
-		face = new AnimatedSprite(300, 0, this.mCircleFaceTextureRegion, vertexBufferObjectManager);
+		face = new AnimatedSprite(300, 0, this.mCircleFaceTextureRegion,
+				vertexBufferObjectManager);
 		mCamera.setChaseEntity(face);
 
-		body = PhysicsFactory.createCircleBody(this.mPhysicsWorld, face, BodyType.DynamicBody, FIXTURE_DEF);
-		
+		body = PhysicsFactory.createCircleBody(this.mPhysicsWorld, face,
+				BodyType.DynamicBody, FIXTURE_DEF);
+
 		this.mScene.attachChild(face);
-		this.mPhysicsWorld.registerPhysicsConnector(new PhysicsConnector(face, body, true, true));
-		
+		this.mPhysicsWorld.registerPhysicsConnector(new PhysicsConnector(face,
+				body, true, true));
+
 		this.mScene.registerUpdateHandler(this.mPhysicsWorld);
-		
+
 		return this.mScene;
 	}
 
