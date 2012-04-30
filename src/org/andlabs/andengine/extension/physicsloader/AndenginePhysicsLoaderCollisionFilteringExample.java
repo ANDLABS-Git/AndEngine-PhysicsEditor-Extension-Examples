@@ -98,8 +98,8 @@ public class AndenginePhysicsLoaderCollisionFilteringExample extends
 
 		try {
 			// Load non-dynamic body definitions
-			loader.load(this, mPhysicsWorld,
-					"collision_filtering_asset.xml", mBigAsset, false, false);
+			loader.loadDebug(this, mPhysicsWorld, mScene,
+					"collision_filtering_asset.xml", mBigAsset, false, false, vertexBufferObjectManager);
 			// Reset between loading of different XMLs
 			loader.reset();
 			// load dynamic shape (a star), not colliding with the bouncy wall
