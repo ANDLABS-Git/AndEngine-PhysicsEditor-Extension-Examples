@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.andengine.engine.camera.ZoomCamera;
 import org.andengine.engine.options.EngineOptions;
-import org.andengine.engine.options.EngineOptions.ScreenOrientation;
 import org.andengine.engine.options.resolutionpolicy.RatioResolutionPolicy;
 import org.andengine.entity.scene.Scene;
 import org.andengine.entity.scene.background.Background;
@@ -46,7 +45,7 @@ public class AndenginePhysicsLoaderCollisionFilteringExample extends
 	public EngineOptions onCreateEngineOptions() {
 		mCamera = new ZoomCamera(0, 0, CAMERA_WIDTH, CAMERA_HEIGHT);
 
-		return new EngineOptions(true, ScreenOrientation.LANDSCAPE_FIXED,
+		return new EngineOptions(true, org.andengine.engine.options.ScreenOrientation.LANDSCAPE_FIXED,
 				new RatioResolutionPolicy(CAMERA_WIDTH, CAMERA_HEIGHT), mCamera);
 	}
 
